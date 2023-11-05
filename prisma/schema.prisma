@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String             @id
+  username        String
+  email           String             @unique
+  userPreferences UserPreferences?
+  createdScrims   Scrim[]
+  scrims          ScrimParticipant[]
+  Messages        Message[]
+}
+
+model UserPreferences {
+  id           String   @id @default(uuid())
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String   @unique
+  emailUpdates Boolean? @default(false)
+  theme        String
+}
+
+model Scrim {
+  id                String             @id @default(uuid())
+  scrimName         String
+  creator           User               @relation(fields: [creatorId], references: [id])
+  creatorId         String
+  createdAt         DateTime           @default(now())
+  description       String
+  status            String
+  platform          String
+  ScrimParticipants ScrimParticipant[]
+  Messages          Message[]
+}
+
+model ScrimParticipant {
+  id            String @id @default(uuid())
+  participant   User   @relation(fields: [participantId], references: [id])
+  scrim         Scrim  @relation(fields: [scrimId], references: [id])
+  participantId String
+  scrimId       String
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  author    User     @relation(fields: [authorId], references: [id])
+  scrim     Scrim    @relation(fields: [scrimId], references: [id])
+  content   String
+  timeStamp DateTime
+  authorId  String
+  scrimId   String
+}
