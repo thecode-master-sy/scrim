@@ -211,10 +211,10 @@ const OnboardingComponent = () => {
   );
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const slidesArray = [
-    <TabOne moveToNextTab={MoveToNextTab} />,
-    <TabTwo moveToNextTab={MoveToNextTab} />,
-    <TabThree moveToNextTab={MoveToNextTab} />,
-    <TabFour />,
+    <TabOne moveToNextTab={MoveToNextTab} key={Math.random()} />,
+    <TabTwo moveToNextTab={MoveToNextTab} key={Math.random()} />,
+    <TabThree moveToNextTab={MoveToNextTab} key={Math.random()} />,
+    <TabFour key={Math.random()} />,
   ];
 
   function MoveToNextTab() {
@@ -223,7 +223,7 @@ const OnboardingComponent = () => {
 
   React.useEffect(() => {
     setCurrentSlide(slidesArray[currentSlideIndex]);
-  }, [currentSlideIndex]);
+  }, [slidesArray, currentSlideIndex]);
 
   let indicatorArray: number[] = [];
 
