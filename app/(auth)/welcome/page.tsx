@@ -210,12 +210,15 @@ const OnboardingComponent = () => {
     <TabOne moveToNextTab={MoveToNextTab} />
   );
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const slidesArray = [
-    <TabOne moveToNextTab={MoveToNextTab} key={Math.random()} />,
-    <TabTwo moveToNextTab={MoveToNextTab} key={Math.random()} />,
-    <TabThree moveToNextTab={MoveToNextTab} key={Math.random()} />,
-    <TabFour key={Math.random()} />,
-  ];
+  const slidesArray = React.useMemo(
+    () => [
+      <TabOne moveToNextTab={MoveToNextTab} key={Math.random()} />,
+      <TabTwo moveToNextTab={MoveToNextTab} key={Math.random()} />,
+      <TabThree moveToNextTab={MoveToNextTab} key={Math.random()} />,
+      <TabFour key={Math.random()} />,
+    ],
+    []
+  );
 
   function MoveToNextTab() {
     setCurrentSlideIndex((prevSlideIndex) => prevSlideIndex + 1);
