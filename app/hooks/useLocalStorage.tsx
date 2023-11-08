@@ -12,7 +12,7 @@ const useLocalStorage = (key: string, initialValue: any) => {
       localStorage.setItem(key, JSON.stringify(initialValue));
       return initialValue;
     } catch (error) {
-      localStorage.setItem(key, JSON.stringify(initialValue));
+      localStorage && localStorage.setItem(key, JSON.stringify(initialValue));
       return "initialValue";
     }
   });

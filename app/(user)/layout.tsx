@@ -1,8 +1,22 @@
 import { Button } from "../components/ui/button";
-import { DesktopNavBarContainer, ScrimLink } from "../components/ui/navbar";
+import {
+  DesktopNavBarContainer,
+  ScrimLink,
+  MobileNavBarContainer,
+  MobileNavBar,
+  MobileNavListElement,
+} from "../components/ui/navbar";
 import { SideBarToggle } from "../components/ui/sidebartoggle";
 import { ProfileComponent } from "../components/user/profile";
-import { SlidersHorizontal, Home, Gamepad } from "lucide-react";
+import {
+  SlidersHorizontal,
+  Home,
+  Gamepad,
+  Search,
+  Bell,
+  PanelLeft,
+} from "lucide-react";
+import { ProfileImage } from "../components/user/profileimage";
 
 const scrimRooms = [
   {
@@ -51,7 +65,7 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="relative">
-      <div className="fixed left-0 top-0 h-screen w-[70%] md:w-[300px]  bg-scrim-sidebar md:bg-background border-r border-r-separator">
+      <div className="fixed left-0 top-0 h-screen w-full sm:w-[70%] md:w-[300px]  bg-scrim-sidebar md:bg-background border-r border-r-separator">
         <div className="flex flex-col h-screen">
           <header className="flex gap-2 items-center py-4 px-3 border-b border-separator">
             <div>
@@ -66,7 +80,7 @@ export default function DashboardLayout({
 
               <div className="flex gap-4 items-center">
                 <div className="flex gap-2 items-center">
-                  <SlidersHorizontal />
+                  <SlidersHorizontal className="text-base" />
                   <span>filter</span>
                 </div>
                 <Button>create</Button>
@@ -95,7 +109,7 @@ export default function DashboardLayout({
                 <h3 className="opacity-80">Scrim rooms</h3>
 
                 <div className="flex gap-2">
-                  <SlidersHorizontal className="opacity-80" />
+                  <SlidersHorizontal className="opacity-80 text-base" />
                   <span className="opacity-80">filter</span>
                 </div>
               </header>
@@ -127,10 +141,56 @@ export default function DashboardLayout({
       </div>
 
       <div className="w-full bg-background min-h-screen overflow-hidden">
-        <div className="w-full translate-x-[74%] min-h-screen md:translate-x-0 md:w-auto md:ml-[300px] bg-scrim-sidebar md:bg-background">
+        <div className="relative w-full sm:translate-x-[74%] min-h-screen md:translate-x-0 md:w-auto md:ml-[300px] bg-scrim-sidebar md:bg-background">
+          <div className="fixed hidden  md:flex items-center justify-between top-0 left-0 right-0 w-full border-b border-border px-4 py-2 bg-background z-10">
+            <SideBarToggle />
+            <div className="flex items-center gap-4">
+              <Bell />
+              <Button>Create</Button>
+            </div>
+          </div>
           {children}
         </div>
       </div>
+
+      <MobileNavBarContainer>
+        <MobileNavBar>
+          <MobileNavListElement>
+            <ScrimLink
+              href="/dashboard"
+              activeStyles="text-primary-dark"
+              className="flex flex-col items-center gap-2">
+              <Home />
+              <span>Home</span>
+            </ScrimLink>
+          </MobileNavListElement>
+
+          <MobileNavListElement>
+            <ScrimLink
+              href="/scrims/search"
+              activeStyles="text-primary-dark"
+              className="flex flex-col items-center gap-2">
+              <Search />
+              <span>Search</span>
+            </ScrimLink>
+          </MobileNavListElement>
+
+          <MobileNavListElement>
+            <ScrimLink
+              href="/scrims"
+              activeStyles="text-primary-dark"
+              className="flex flex-col items-center gap-2">
+              <Gamepad />
+              <span>Scrims</span>
+            </ScrimLink>
+          </MobileNavListElement>
+
+          <div className="flex flex-col items-center gap-2">
+            <ProfileImage />
+            <span>profile</span>
+          </div>
+        </MobileNavBar>
+      </MobileNavBarContainer>
     </div>
   );
 }

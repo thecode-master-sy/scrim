@@ -29,4 +29,47 @@ const ScrimLink: React.FC<ScrimLinkProps> = ({
   );
 };
 
-export { DesktopNavBarContainer, ScrimLink };
+const MobileNavBarContainer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  className,
+  ...props
+}) => {
+  return (
+    <div
+      className={cn(
+        "md:hidden fixed bottom-0 left-0 right-0 w-full",
+        className
+      )}
+      {...props}
+    />
+  );
+};
+
+const MobileNavBar: React.FC<React.HTMLAttributes<HTMLUListElement>> = ({
+  className,
+  ...props
+}) => {
+  return (
+    <ul
+      className={cn(
+        "flex w-full border-t border-border justify-between items-center py-1 px-4 bg-scrim-white/30 backdrop-blur-md",
+        className
+      )}
+      {...props}
+    />
+  );
+};
+
+const MobileNavListElement: React.FC<React.HTMLAttributes<HTMLLIElement>> = ({
+  className,
+  ...props
+}) => {
+  return <li className={cn("", className)} {...props} />;
+};
+
+export {
+  DesktopNavBarContainer,
+  MobileNavBarContainer,
+  MobileNavBar,
+  MobileNavListElement,
+  ScrimLink,
+};
