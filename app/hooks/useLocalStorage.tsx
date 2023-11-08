@@ -4,12 +4,12 @@ import React from "react";
 const useLocalStorage = (key: string, initialValue: any) => {
   const [localStorageValue, setValue] = React.useState(() => {
     try {
-      const value = localStorage.getItem(key);
+      const value = localStorage ? localStorage.getItem(key) : "";
       if (value) {
         return JSON.parse(value);
       }
 
-      localStorage.setItem(key, JSON.stringify(initialValue));
+      localStorage && localStorage.setItem(key, JSON.stringify(initialValue));
       return initialValue;
     } catch (error) {
       localStorage && localStorage.setItem(key, JSON.stringify(initialValue));
@@ -25,7 +25,7 @@ const useLocalStorage = (key: string, initialValue: any) => {
       newValue = valueOrFn;
     }
 
-    localStorage.setItem(key, JSON.stringify(newValue));
+    localStorage && localStorage.setItem(key, JSON.stringify(newValue));
     setValue(newValue);
   };
 
