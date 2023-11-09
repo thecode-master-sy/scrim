@@ -42,3 +42,5 @@ export default function HankoAuth() {
 
   return <hanko-auth />;
 }
+
+export { Hanko };

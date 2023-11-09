@@ -9,11 +9,15 @@ import * as React from "react";
 import lightMode from "@/public/light-mode.png";
 import darkMode from "@/public/dark-mode.png";
 import Image from "next/image";
-import { Hanko } from "@teamhanko/hanko-elements";
 import { hankoApi as hankoApiUrl } from "@/app/lib/hanko/HankoAuth";
 import { createUser } from "@/app/lib/api-client/user";
 import { useThemeContext } from "@/app/contexts/ThemeContextProvider";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const Hanko = dynamic(() => import("@/app/lib/hanko/HankoAuth"), {
+  ssr: false,
+});
 
 export default function Page() {
   return (
