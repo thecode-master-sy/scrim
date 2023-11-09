@@ -1,8 +1,15 @@
-import ThemeContextProvider from "./contexts/ThemeContextProvider";
 import "./globals.css";
 import "./lib/hanko/hanko.css";
 import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
+import dynamic from "next/dynamic";
+
+const ThemeContextProvider = dynamic(
+  () => import("./contexts/ThemeContextProvider"),
+  {
+    ssr: false,
+  }
+);
 
 const barlow = Barlow({
   weight: ["300", "400", "700", "800", "900"],
@@ -21,9 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeContextProvider>
-        <body className={barlow.className}>{children}</body>
-      </ThemeContextProvider>
+      <body className={barlow.className}>
+        <ThemeContextProvider>{children}</ThemeContextProvider>
+      </body>
     </html>
   );
 }
