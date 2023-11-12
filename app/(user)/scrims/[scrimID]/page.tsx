@@ -21,7 +21,7 @@ export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
   const ID = scrimID.split("-")[0];
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative">
       <header className="fixed left-0 right-0 top-0 md:top-[52px] flex justify-between items-center px-4 py-3 border-y border-border bg-scrim-sidebar md:bg-background z-10">
         <div className="flex gap-4 items-center">
           <div className="block md:hidden">
@@ -37,7 +37,7 @@ export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
         </div>
       </header>
 
-      <div className="pt-32 px-4 max-h-screen overflow-y-scroll">
+      <div className="pt-32 pb-[10rem] md:pb-[5rem] px-4 max-h-screen overflow-y-scroll">
         <div>
           <div className="flex">
             <Pellet className="mx-auto">
@@ -211,7 +211,9 @@ export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
                     <MessageTimeLine>Oct 23, 2023 4:12pm</MessageTimeLine>
                   </div>
 
-                  <MessageText className="mt-2">Sending Link Now</MessageText>
+                  <MessageText className="mt-2">
+                    this is the last text that is here
+                  </MessageText>
                 </div>
               </MessageContent>
             </Message>

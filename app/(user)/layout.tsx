@@ -141,8 +141,8 @@ export default function DashboardLayout({
         </div>
       </div>
 
-      <div className="w-full bg-background min-h-screen overflow-hidden">
-        <div className="relative w-full sm:translate-x-[74%] min-h-screen md:translate-x-0 md:w-auto md:ml-[300px] bg-scrim-sidebar md:bg-background">
+      <div className="w-full bg-background">
+        <div className="relative w-full sm:translate-x-[74%] md:translate-x-0 md:w-auto md:ml-[300px] bg-scrim-sidebar md:bg-background">
           <div className="fixed hidden  md:flex items-center justify-between top-0 left-0 right-0 w-full border-b border-border px-4 py-2 bg-background z-10">
             <SideBarToggle />
             <div className="flex items-center gap-4">

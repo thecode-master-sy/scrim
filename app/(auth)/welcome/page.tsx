@@ -1,23 +1,17 @@
 "use client";
+import * as React from "react";
 import { Logo } from "@/app/components/Logo";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { cn, patterns, verify } from "@/app/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { useState } from "react";
-import * as React from "react";
 import lightMode from "@/public/light-mode.png";
 import darkMode from "@/public/dark-mode.png";
 import Image from "next/image";
 import { hankoApi as hankoApiUrl } from "@/app/lib/hanko/HankoAuth";
-import { createUser } from "@/app/lib/api-client/user";
 import { useThemeContext } from "@/app/contexts/ThemeContextProvider";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
-
-const Hanko = dynamic(() => import("@/app/lib/hanko/HankoAuth"), {
-  ssr: false,
-});
+import { Hanko } from "@teamhanko/hanko-elements";
 
 export default function Page() {
   return (
@@ -51,7 +45,14 @@ const TabOne = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
 
 const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
   const usernameRef = React.useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<null | string>(null);
+  const [error, setError] = React.useState<null | string>(null);
+  const [hanko, setHanko] = React.useState<Hanko>();
+
+  React.useEffect(() => {
+    import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+      setHanko(new Hanko(hankoApiUrl ?? ""))
+    );
+  }, []);
 
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -210,10 +211,10 @@ const Indicator: React.FC<IndicatorProps> = ({
 };
 
 const OnboardingComponent = () => {
-  const [currentSlide, setCurrentSlide] = useState(
+  const [currentSlide, setCurrentSlide] = React.useState(
     <TabOne moveToNextTab={MoveToNextTab} />
   );
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
   const slidesArray = React.useMemo(
     () => [
       <TabOne moveToNextTab={MoveToNextTab} key={Math.random()} />,
@@ -256,11 +257,9 @@ const OnboardingComponent = () => {
   );
 };
 
-const getHankoUser = async () => {
-  const hankoApi = new Hanko(hankoApiUrl ?? "");
-
-  const userDetails = hankoApi
-    ? await hankoApi.user.getCurrent()
+const getHankoUser = async (Hanko: any) => {
+  const userDetails = Hanko
+    ? await Hanko.user.getCurrent()
     : { id: null, email: null };
 
   console.log(userDetails);
