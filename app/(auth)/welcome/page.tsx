@@ -8,10 +8,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import lightMode from "@/public/light-mode.png";
 import darkMode from "@/public/dark-mode.png";
 import Image from "next/image";
-import { hankoApi as hankoApiUrl } from "@/app/lib/hanko/HankoAuth";
+//import { hankoApi as hankoApiUrl } from "@/app/lib/hanko/HankoAuth";
 import { useThemeContext } from "@/app/contexts/ThemeContextProvider";
 import { useRouter } from "next/navigation";
-import { Hanko } from "@teamhanko/hanko-elements";
+//import { Hanko } from "@teamhanko/hanko-elements";
 
 export default function Page() {
   return (
@@ -46,13 +46,13 @@ const TabOne = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
 const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
   const usernameRef = React.useRef<HTMLInputElement>(null);
   const [error, setError] = React.useState<null | string>(null);
-  const [hanko, setHanko] = React.useState<Hanko>();
+  // const [hanko, setHanko] = React.useState<Hanko>();
 
-  React.useEffect(() => {
-    import("@teamhanko/hanko-elements").then(({ Hanko }) =>
-      setHanko(new Hanko(hankoApiUrl ?? ""))
-    );
-  }, []);
+  // React.useEffect(() => {
+  //   import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+  //     setHanko(new Hanko(hankoApiUrl ?? ""))
+  //   );
+  // }, []);
 
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -257,12 +257,12 @@ const OnboardingComponent = () => {
   );
 };
 
-const getHankoUser = async (Hanko: any) => {
-  const userDetails = Hanko
-    ? await Hanko.user.getCurrent()
-    : { id: null, email: null };
+// const getHankoUser = async (Hanko: any) => {
+//   const userDetails = Hanko
+//     ? await Hanko.user.getCurrent()
+//     : { id: null, email: null };
 
-  console.log(userDetails);
+//   console.log(userDetails);
 
-  return userDetails;
-};
+//   return userDetails;
+// };
