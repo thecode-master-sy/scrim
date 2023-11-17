@@ -125,7 +125,7 @@ const TabThree = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
                   ? "border-2  border-scrim-button-stroke"
                   : ""
               }`}
-              onClick={() => themeContext?.setTheme("light")}>
+              onClick={() => themeContext?.toggleTheme("light")}>
               <Image
                 width={100}
                 height={100}
@@ -147,7 +147,7 @@ const TabThree = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
                   ? "border-2  border-scrim-button-stroke"
                   : ""
               }`}
-              onClick={() => themeContext?.setTheme("dark")}>
+              onClick={() => themeContext?.toggleTheme("dark")}>
               <Image width={100} height={100} src={darkMode} alt="dark mode" />
             </div>
             <p

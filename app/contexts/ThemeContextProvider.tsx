@@ -1,10 +1,9 @@
 "use client";
 import * as React from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 const ThemeContext = React.createContext<{
-  theme: string;
-  setTheme: (value: string) => void;
+  theme: string | null;
+  toggleTheme: (value?: string) => void;
 } | null>(null);
 
 export function useThemeContext() {
@@ -16,15 +15,27 @@ export default function ThemeContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useLocalStorage("theme", () => {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    )
+  const [isMounted, setIsMounted] = React.useState(false);
+  const [theme, setTheme] = React.useState<string | null>(() => {
+    if (typeof localStorage !== undefined && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+
+    if (window.matchMedia("(prefers-color-scheme: dark").matches) {
       return "dark";
+    }
 
     return "light";
   });
+
+  function toggleTheme(value?: string) {
+    const toggleValue = theme === "light" ? "dark" : "light";
+
+    const newThemeValue = value ? value : toggleValue;
+
+    localStorage.setItem("theme", newThemeValue);
+    setTheme(newThemeValue);
+  }
 
   React.useEffect(() => {
     const root = document.documentElement;
@@ -37,7 +48,7 @@ export default function ThemeContextProvider({
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
