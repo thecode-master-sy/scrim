@@ -15,7 +15,6 @@ export default function ThemeContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [isMounted, setIsMounted] = React.useState(false);
   const [theme, setTheme] = React.useState<string | null>(() => {
     if (typeof localStorage !== undefined && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");

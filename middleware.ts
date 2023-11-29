@@ -19,7 +19,7 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/user"],
+  matcher: ["/dashboard", "/welcome"],
 };
 //if the user is already logged in redirect back to the dashboard for the login and welcome pages;
 //if the user is not already logged in redirect back to the login page for the user to login

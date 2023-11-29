@@ -1,5 +1,6 @@
 .hanko_container {
   width: 100%;
+  color: var(--scrim-text-foreground);
 }
 
 .hanko_content {
@@ -47,7 +48,7 @@
 .hanko_input:hover,
 .hanko_input:focus {
   outline: none;
-  border-color: var(--scrim-background-light-200);
+  border-color: var(--scrim-input-border-hover);
 }
 .hanko_passcodeInputWrapper {
   display: grid;
@@ -65,7 +66,7 @@
 
 .hanko_divider .hanko_line {
   flex: 1;
-  border-bottom: 1px solid var(--scrim-background-light-100);
+  border-bottom: 1px solid var(--scrim-separator-color);
 }
 
 .hanko_button {
@@ -82,6 +83,7 @@
   background-image: var(--scrim-primary-gradient);
   border: 1px solid var(--scrim-button-stroke);
   box-shadow: var(--scrim-button-shadow-sm);
+  color: var(--scrim-button-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,8 +91,8 @@
 }
 
 .hanko_button.hanko_secondary {
-  background-color: var(--scrim-background-light-100);
-  border: 1px solid var(--scrim-background-light-200);
+  background-color: var(--scrim-pellet-color);
+  border: 1px solid var(--scrim-pellet-border);
 }
 
 .hanko_primary .hanko_loadingSpinnerWrapperIcon,
@@ -105,7 +107,7 @@
 .hanko_loadingSpinnerWrapper .hanko_loadingSpinner,
 .hanko_loadingSpinnerWrapperIcon .hanko_loadingSpinner {
   display: inline-block;
-  fill: var(--scrim-white, white);
+  fill: var(--scrim-text-foreground, white);
   width: 18px;
 }
 

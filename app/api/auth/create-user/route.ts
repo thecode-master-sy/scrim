@@ -8,8 +8,8 @@ export async function POST(req: Request) {
     //check if user exists before creating a new user
     const user = await prisma.user.findUnique({
       where: {
-        id: id || null,
-        email: email || null,
+        id: id,
+        email: email,
       },
     });
 
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       );
 
     //if not create a new user
-    await prisma.user.create({
+    const returnedUser = await prisma.user.create({
       data: {
         id: id,
         email: email,
@@ -41,8 +41,14 @@ export async function POST(req: Request) {
       },
     });
 
+    console.log(returnedUser);
+
     return NextResponse.json(
-      { error: false, message: "user created successfully" },
+      {
+        error: false,
+        message: "user created successfully",
+        user: returnedUser,
+      },
       { status: 200 }
     );
   } catch (error) {

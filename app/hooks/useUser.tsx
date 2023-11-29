@@ -1,3 +1,4 @@
+"use client";
 import useLocalStorage from "./useLocalStorage";
 
 type userReturnValue = {

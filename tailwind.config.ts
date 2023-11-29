@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        sm: "450px",
+        sm: "350px",
         md: "800px",
         lg: "1200px",
       },

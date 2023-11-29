@@ -12,6 +12,7 @@ export async function createUser(userDetails: User) {
 
     return await response.json();
   } catch (error) {
-    return error;
+    console.log(error);
+    return { error: true, message: "something went wrong please try again" };
   }
 }

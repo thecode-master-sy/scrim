@@ -3,17 +3,12 @@ import React from "react";
 
 const useLocalStorage = (key: string, initialValue: any) => {
   const [localStorageValue, setValue] = React.useState(() => {
-    if (typeof localStorage !== undefined) {
-      const value = localStorage.getItem(key);
+    if (typeof localStorage !== undefined && localStorage.getItem(key))
+      return localStorage.getItem(key);
 
-      if (value) {
-        return JSON.parse(value);
-      }
+    localStorage.setItem(key, JSON.stringify(initialValue));
 
-      localStorage.setItem(key, JSON.stringify(initialValue));
-
-      return initialValue;
-    }
+    return initialValue;
   });
 
   const setLocalStorageValue = (valueOrFn: any) => {
@@ -27,6 +22,7 @@ const useLocalStorage = (key: string, initialValue: any) => {
     if (typeof localStorage !== undefined) {
       localStorage.setItem(key, JSON.stringify(newValue));
     }
+
     setValue(newValue);
   };
 

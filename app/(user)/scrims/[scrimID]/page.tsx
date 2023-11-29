@@ -1,5 +1,6 @@
+"use client";
 import { Users2, MoreVertical, ArrowRight } from "lucide-react";
-import { SideBarToggle } from "@/app/components/ui/sidebartoggle";
+import { SideBarButton } from "@/app/components/ui/sidebartoggle";
 import { Input } from "@/app/components/ui/input";
 import { Button } from "@/app/components/ui/button";
 import { ProfileImage } from "@/app/components/user/profileimage";
@@ -12,6 +13,7 @@ import {
   MessageText,
   MessageTimeLine,
 } from "@/app/components/ui/message";
+import { useMobileRightPanelConetext } from "@/app/contexts/PanelProviders";
 
 interface ScrimProps {
   scrimID: string;
@@ -19,13 +21,14 @@ interface ScrimProps {
 
 export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
   const ID = scrimID.split("-")[0];
+  const mobileRightPanelContext = useMobileRightPanelConetext();
 
   return (
     <div className="relative">
       <header className="fixed left-0 right-0 top-0 md:top-[52px] flex justify-between items-center px-4 py-3 border-y border-border bg-scrim-sidebar md:bg-background z-10">
         <div className="flex gap-4 items-center">
           <div className="block md:hidden">
-            <SideBarToggle />
+            <SideBarButton onClick={mobileRightPanelContext?.togglePanel} />
           </div>
 
           <h3>1 v 1 snipers only 9 pm</h3>

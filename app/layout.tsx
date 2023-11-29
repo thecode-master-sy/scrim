@@ -3,6 +3,7 @@ import "./lib/hanko/hanko.css";
 import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import dynamic from "next/dynamic";
+import { MobileRightPanelContextProvider } from "./contexts/PanelProviders";
 
 const ThemeContextProvider = dynamic(
   () => import("./contexts/ThemeContextProvider"),
@@ -29,7 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={barlow.className}>
-        <ThemeContextProvider>{children}</ThemeContextProvider>
+        <ThemeContextProvider>
+          <MobileRightPanelContextProvider>
+            {children}
+          </MobileRightPanelContextProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );
