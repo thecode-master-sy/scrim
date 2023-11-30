@@ -4,7 +4,7 @@ import React from "react";
 const useLocalStorage = (key: string, initialValue: any) => {
   const [localStorageValue, setValue] = React.useState(() => {
     if (typeof localStorage !== undefined && localStorage.getItem(key))
-      return localStorage.getItem(key);
+      return JSON.parse(localStorage.getItem(key) ?? "");
 
     localStorage.setItem(key, JSON.stringify(initialValue));
 

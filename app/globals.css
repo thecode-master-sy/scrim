@@ -76,7 +76,7 @@
     --scrim-separator-color: hsla(261, 22%, 41%, 0.5);
     --scrim-nav-indicator: var(--scrim-input-color);
     --scrim-border: hsla(261, 22%, 41%, 0.5);
-    --scrim-button-color: var(--scrim-background-dark);
+    --scrim-button-color: var(--scrim-background-white);
     --scrim-input-border: var(--scrim-background-light-100);
     --scrim-input-border-hover: var(--scrim-background-light-200);
     --scrim-side-bar-color: var(--scrim-dark-ash);

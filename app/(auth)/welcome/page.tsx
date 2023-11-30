@@ -65,8 +65,8 @@ const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
       );
 
     const newUser = {
-      id: user?.id,
-      email: user?.email,
+      id: user.id,
+      email: user.email,
       username: username,
     };
 

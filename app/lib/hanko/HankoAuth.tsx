@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { register, Hanko } from "@teamhanko/hanko-elements";
 import { useUser } from "@/app/hooks/useUser";
 
@@ -19,18 +19,18 @@ export default function HankoAuth() {
     );
   }, []);
 
-  const redirectAfterLogin = useCallback(async () => {
+  const redirectAfterLogin = useCallback(() => {
     // successfully logged in, redirect to a page in your application
-    const userDetails = await hanko?.user.getCurrent();
-    setUser({ id: userDetails?.id, email: userDetails?.email });
-    return router.replace("/welcome");
+    router.replace("/welcome");
   }, [router]);
 
   //redirect the user after login in with hanko event callbacks
   useEffect(
     () =>
       hanko?.onAuthFlowCompleted(async () => {
-        await redirectAfterLogin();
+        const userDetails = await hanko?.user.getCurrent();
+        setUser({ id: userDetails?.id, email: userDetails?.email });
+        redirectAfterLogin();
       }),
     [hanko, redirectAfterLogin]
   );
