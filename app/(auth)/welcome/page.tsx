@@ -10,14 +10,9 @@ import darkMode from "@/public/dark-mode.png";
 import Image from "next/image";
 import { useThemeContext } from "@/app/contexts/ThemeContextProvider";
 import { useRouter } from "next/navigation";
-import { Hanko } from "@teamhanko/hanko-elements";
 import { createUser } from "@/app/lib/api-client/user";
 import { useUser } from "@/app/hooks/useUser";
 import { Loader2 } from "lucide-react";
-
-const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
-
-const hanko = new Hanko(hankoApi ?? "");
 
 export default function Page() {
   return (
@@ -52,15 +47,8 @@ const TabOne = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
 const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
   const usernameRef = React.useRef<HTMLInputElement>(null);
   const [error, setError] = React.useState<null | string>(null);
-  //const [hanko, setHanko] = React.useState<Hanko>();
-  const { setUser } = useUser();
+  const { user, setUser } = useUser();
   const [loading, setLoading] = React.useState(false);
-
-  // React.useEffect(() => {
-  //   import("@teamhanko/hanko-elements").then(({ Hanko }) =>
-  //     setHanko(new Hanko(hankoApiUrl ?? ""))
-  //   );
-  // }, []);
 
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -76,14 +64,9 @@ const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
         "the username should be a minimum of 6 characters and not more than 30 characters"
       );
 
-    const userDetails = await hanko?.user.getCurrent();
-
-    if (userDetails?.id === undefined || userDetails?.email === undefined)
-      return setError("something went wrong please retry");
-
     const newUser = {
-      id: userDetails?.id,
-      email: userDetails?.email,
+      id: user?.id,
+      email: user?.email,
       username: username,
     };
 
