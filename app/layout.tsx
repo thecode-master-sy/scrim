@@ -1,7 +1,7 @@
 import "./globals.css";
 import "./lib/hanko/hanko.css";
 import type { Metadata } from "next";
-import { Barlow } from "next/font/google";
+import { Lato } from "next/font/google";
 import dynamic from "next/dynamic";
 import { MobileRightPanelContextProvider } from "./contexts/PanelProviders";
 
@@ -12,10 +12,7 @@ const ThemeContextProvider = dynamic(
   }
 );
 
-const barlow = Barlow({
-  weight: ["300", "400", "700", "800", "900"],
-  subsets: ["latin"],
-});
+const lato = Lato({ weight: ["300", "400", "700", "900"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={barlow.className}>
+      <body className={lato.className}>
         <ThemeContextProvider>
           <MobileRightPanelContextProvider>
             {children}

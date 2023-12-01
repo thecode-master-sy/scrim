@@ -41,7 +41,7 @@
     --border-rdx: 0.25rem;
 
     --fs-small: clamp(0.6rem, 4vw, 0.8rem);
-    --fs-base: clamp(0.9rem, 4vw, 0.95rem);
+    --fs-base: clamp(0.9rem, 4vw, 0.96rem);
     --fs-mid: clamp(2rem, 4vw, 2.2rem);
     --fs-logo: clamp(2.3rem, 4vw, 2.2rem);
     --fs-large: clamp(2.35rem, 6vw, 3.5rem);

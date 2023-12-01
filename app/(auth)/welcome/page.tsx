@@ -53,8 +53,6 @@ const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    setLoading(true);
-
     const username = usernameRef.current?.value || "";
 
     if (username === "") return setError("please enter a username");
@@ -63,7 +61,7 @@ const TabTwo = ({ moveToNextTab }: { moveToNextTab: () => void }) => {
       return setError(
         "the username should be a minimum of 6 characters and not more than 30 characters"
       );
-
+    setLoading(true);
     const newUser = {
       id: user.id,
       email: user.email,
