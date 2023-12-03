@@ -4,34 +4,36 @@
 
 @layer base {
   :root {
-    --scrim-background-dark: hsla(261, 22%, 18%, 1);
-    --scrim-background-white: hsla(240, 14%, 99%, 1);
-    --scrim-background-light-100: hsla(261, 22%, 41%, 1);
-    --scrim-background-light-200: hsla(261, 22%, 57%, 1);
-    --scrim-background-light-300: hsla(262, 22%, 68%, 1);
-    --scrim-background-light-400: hsla(258, 21%, 78%, 1);
-    --scrim-background-light-500: hsla(260, 23%, 95%, 1);
-    --scrim-background-light-600: hsla(258, 23%, 95%, 1);
+    --scrim-background-dark: hsla(231, 20%, 20%, 1);
+    --scrim-background-white: hsla(0, 0%, 99%, 1);
+    --scrim-background-light-100: hsla(231, 21%, 26%, 1);
+    --scrim-background-light-200: hsla(231, 20%, 31%, 1);
+    --scrim-background-light-300: hsla(232, 20%, 37%, 1);
+    --scrim-background-light-400: hsla(232, 20%, 72%, 1);
+    --scrim-background-light-500: hsla(230, 21%, 95%, 1);
+    --scrim-background-light-600: hsla(225, 20%, 96%, 1);
     --scrim-background-gradient: linear-gradient(
       163deg,
-      #8170a0 -9.88%,
-      #2b2438 99.41%
+      #454752 -9.88%,
+      #292c3d 108.24%
     );
+
     --scrim-background-gradient-desktop: linear-gradient(
-      153deg,
-      #8170a0 -78.1%,
-      #2b2438 109.97%
+      163deg,
+      #454752 -9.88%,
+      #292c3d 108.24%
     );
+
     --scrim-primary: hsla(31, 77%, 49%, 1);
     --scrim-primary-light: hsla(38, 76%, 59%, 1);
 
     --scrim-button-shadow-sm: 0px 0px 11px 2px rgba(230, 173, 73, 0.2);
     --scrim-button-shadow-md: 0px 0px 12px 6px rgba(230, 173, 73, 0.3);
     --scrim-buton-shadow-lg: 0px 0px 10px 10px rgba(230, 173, 73, 0.3);
-    --scrim-input-color-dark: hsla(260, 12%, 34%, 1);
+    --scrim-input-color-dark: hsla(231, 21%, 26%, 1);
     --scrim-input-color-light: var(--scrim-background-light-600);
-    --scrim-neutral-ash: hsla(260, 1%, 97%, 1);
-    --scrim-dark-ash: hsla(261, 17%, 25%, 1);
+    --scrim-neutral-ash: hsla(0, 0%, 98%, 1);
+    --scrim-dark-ash: hsla(229, 20%, 17%, 1);
 
     --scrim-button-stroke: var(--scrim-primary);
     --scrim-button-color: var(--scrim-background-white);
@@ -41,7 +43,7 @@
     --border-rdx: 0.25rem;
 
     --fs-small: clamp(0.6rem, 4vw, 0.8rem);
-    --fs-base: clamp(0.9rem, 4vw, 0.96rem);
+    --fs-base: clamp(0.85rem, 4vw, 0.92rem);
     --fs-mid: clamp(2rem, 4vw, 2.2rem);
     --fs-logo: clamp(2.3rem, 4vw, 2.2rem);
     --fs-large: clamp(2.35rem, 6vw, 3.5rem);
@@ -51,7 +53,7 @@
     --scrim-background: var(--scrim-background-white);
     --scrim-text-foreground: var(--scrim-background-dark);
     --scrim-pellet-color: var(--scrim-background-light-600);
-    --scrim-pellet-border: var(--scrim-background-light-400);
+    --scrim-pellet-border: var(--scrim-background-light-500);
     --scrim-input-color: var(--scrim-input-color-light);
     --scrim-separator-color: var(--scrim-background-light-500);
     --scrim-nav-indicator: var(--scrim-background-light-600);
@@ -63,7 +65,7 @@
     --scrim-primary-gradient: linear-gradient(
       90deg,
       rgb(230, 173, 73) -56.63%,
-      rgba(223, 130, 29, 0.8) 53.01%,
+      rgba(223, 130, 29, 0.9) 53.01%,
       rgb(230, 173, 73) 149.4%
     );
   }
@@ -73,12 +75,12 @@
     --scrim-pellet-color: var(--scrim-background-light-100);
     --scrim-pellet-border: var(--scrim-background-light-200);
     --scrim-input-color: var(--scrim-input-color-dark);
-    --scrim-separator-color: hsla(261, 22%, 41%, 0.5);
+    --scrim-separator-color: var(--scrim-background-light-100);
     --scrim-nav-indicator: var(--scrim-input-color);
-    --scrim-border: hsla(261, 22%, 41%, 0.5);
+    --scrim-border: var(--scrim-background-light-200);
     --scrim-button-color: var(--scrim-background-white);
-    --scrim-input-border: var(--scrim-background-light-100);
-    --scrim-input-border-hover: var(--scrim-background-light-200);
+    --scrim-input-border: var(--scrim-background-light-200);
+    --scrim-input-border-hover: var(--scrim-background-light-300);
     --scrim-side-bar-color: var(--scrim-dark-ash);
     --scrim-primary-gradient: linear-gradient(
       90deg,

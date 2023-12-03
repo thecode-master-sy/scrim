@@ -35,18 +35,23 @@ export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
         </div>
 
         <div className="flex gap-4">
-          <Users2 />
-          <MoreVertical />
+          <Users2 size={20} strokeWidth={2} />
+          <MoreVertical size={20} strokeWidth={2} />
         </div>
       </header>
 
       <div className="pt-32 pb-[10rem] md:pb-[5rem] px-4 max-h-screen overflow-y-scroll">
         <div>
-          <div className="flex">
+          <div className="flex flex-col gap-2">
             <Pellet className="mx-auto">
-              <ProfileImage />
               <PelletText>Heisenberg created a scrim room</PelletText>
             </Pellet>
+
+            <div>
+              <p className="text-sm text-center opacity-70">
+                you can share game links and resources here
+              </p>
+            </div>
           </div>
 
           <TimeLine className="mt-7">

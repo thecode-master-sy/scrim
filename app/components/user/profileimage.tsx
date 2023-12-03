@@ -5,7 +5,7 @@ import Image from "next/image";
 const ProfileImage = () => {
   return (
     <div>
-      <div className="relative w-[35px] h-[35px] rounded-full overflow-hidden">
+      <div className="relative w-[30px] h-[30px] rounded-full overflow-hidden">
         <Image
           src="/defaultprofile.jfif"
           className="cover"

@@ -50,8 +50,8 @@ export default function DashboardLayout({
             <ScrimLink
               href="/dashboard"
               activeStyles="text-primary-dark"
-              className="flex flex-col items-center gap-2">
-              <Home />
+              className="flex flex-col items-center gap-1">
+              <Home size={20} strokeWidth={2} />
               <span>Home</span>
             </ScrimLink>
           </MobileNavListElement>
@@ -60,8 +60,8 @@ export default function DashboardLayout({
             <ScrimLink
               href="/scrims/search"
               activeStyles="text-primary-dark"
-              className="flex flex-col items-center gap-2">
-              <Search />
+              className="flex flex-col items-center gap-1">
+              <Search size={20} strokeWidth={2} />
               <span>Search</span>
             </ScrimLink>
           </MobileNavListElement>
@@ -70,15 +70,15 @@ export default function DashboardLayout({
             <ScrimLink
               href="/scrims"
               activeStyles="text-primary-dark"
-              className="flex flex-col items-center gap-2">
-              <Gamepad />
+              className="flex flex-col items-center gap-1">
+              <Gamepad size={20} strokeWidth={2} />
               <span>Scrims</span>
             </ScrimLink>
           </MobileNavListElement>
 
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-1">
             <ProfileImage />
-            <span>profile</span>
+            <span>Profile</span>
           </div>
         </MobileNavBar>
       </MobileNavBarContainer>

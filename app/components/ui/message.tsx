@@ -32,7 +32,7 @@ const MessageTimeLine: React.FC<React.HTMLAttributes<HTMLSpanElement>> = ({
   className,
   ...props
 }) => {
-  return <span className={cn("opacity-50", className)} {...props} />;
+  return <span className={cn("opacity-50 text-sm", className)} {...props} />;
 };
 
 export { Message, MessageContent, MessageText, MessageTimeLine, MessageAuthor };

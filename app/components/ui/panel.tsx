@@ -52,12 +52,12 @@ const desktopPaths = [
   {
     label: "Dashboard",
     path: "/dashboard",
-    icon: <Home />,
+    icon: <Home size={20} strokeWidth={2} />,
   },
   {
     label: "Scrims",
     path: "/scrims",
-    icon: <Gamepad />,
+    icon: <Gamepad size={20} strokeWidth={2} />,
   },
 ];
 
@@ -66,7 +66,7 @@ const LeftPanel = () => {
   return (
     <div className="fixed left-0 top-0 h-screen w-full sm:w-[80%] md:w-[300px]  bg-scrim-sidebar md:bg-background border-r border-r-separator">
       <div className="flex flex-col h-screen">
-        <header className="flex gap-2 items-center py-4 px-3 border-b border-separator">
+        <header className="flex justify-between gap-2 items-center py-4 px-3 border-b border-separator">
           <div>
             <SideBarButton onClick={mobileRightPanelContext?.togglePanel} />
           </div>
@@ -74,17 +74,7 @@ const LeftPanel = () => {
             <ProfileComponent />
           </div>
 
-          <div className="flex md:hidden justify-between items-center grow">
-            <h3>Scrim rooms</h3>
-
-            <div className="flex gap-4 items-center">
-              <div className="flex gap-2 items-center">
-                <SlidersHorizontal className="text-base" />
-                <span>filter</span>
-              </div>
-              <Button>create</Button>
-            </div>
-          </div>
+          <Button className="md:hidden">create</Button>
         </header>
 
         <div>
@@ -104,11 +94,15 @@ const LeftPanel = () => {
           </DesktopNavBarContainer>
 
           <div className="py-7">
-            <header className="hidden md:flex justify-between items-center px-3">
+            <header className="flex justify-between items-center px-3">
               <h3 className="opacity-80">Scrim rooms</h3>
 
               <div className="flex gap-2">
-                <SlidersHorizontal className="opacity-80 text-base" />
+                <SlidersHorizontal
+                  size={20}
+                  strokeWidth={2}
+                  className="opacity-80 text-base"
+                />
                 <span className="opacity-80">filter</span>
               </div>
             </header>
@@ -169,7 +163,7 @@ const DesktopRightPanel = ({ children }: { children: React.ReactNode }) => {
       <div className="fixed flex items-center justify-between top-0 left-0 right-0 w-full border-b border-border px-4 py-2 bg-background z-10">
         <SideBarButton />
         <div className="flex items-center gap-4">
-          <Bell />
+          <Bell size={20} strokeWidth={2} />
           <Button>create</Button>
         </div>
       </div>
