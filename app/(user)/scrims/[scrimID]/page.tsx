@@ -13,7 +13,7 @@ import {
   MessageText,
   MessageTimeLine,
 } from "@/app/components/ui/message";
-import { useMobileRightPanelConetext } from "@/app/contexts/PanelProviders";
+import { useMobileRightPanelContext } from "@/app/contexts/PanelProviders";
 
 interface ScrimProps {
   scrimID: string;
@@ -21,7 +21,7 @@ interface ScrimProps {
 
 export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
   const ID = scrimID.split("-")[0];
-  const mobileRightPanelContext = useMobileRightPanelConetext();
+  const mobileRightPanelContext = useMobileRightPanelContext();
 
   return (
     <div className="relative">
@@ -229,7 +229,7 @@ export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
         </div>
       </div>
 
-      <footer className="fixed bottom-[4.5rem] md:bottom-0 right-0 left-0 px-4 py-3 border-t border-border bg-scrim-sidebar md:bg-background backdrop-blur-md">
+      <footer className="fixed bottom-0 right-0 left-0 px-4 py-3 border-t border-border bg-scrim-sidebar md:bg-background backdrop-blur-md">
         <form className="flex gap-2 items-center">
           <Input
             className="grow"

@@ -7,7 +7,7 @@ import { SideBarButton } from "./sidebartoggle";
 import { Home, Gamepad, Bell } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useMobileRightPanelConetext } from "@/app/contexts/PanelProviders";
+import { useMobileRightPanelContext } from "@/app/contexts/PanelProviders";
 import Link from "next/link";
 
 const mobileRightPanelVariants = {
@@ -18,6 +18,11 @@ const mobileRightPanelVariants = {
   animate: {
     x: 0,
     opacity: 1,
+    transition: {
+      opacity: {
+        delay: 0,
+      },
+    },
   },
 };
 
@@ -62,7 +67,7 @@ const desktopPaths = [
 ];
 
 const LeftPanel = () => {
-  const mobileRightPanelContext = useMobileRightPanelConetext();
+  const mobileRightPanelContext = useMobileRightPanelContext();
   return (
     <div className="fixed left-0 top-0 h-screen w-full sm:w-[80%] md:w-[300px]  bg-scrim-sidebar md:bg-background border-r border-r-separator">
       <div className="flex flex-col h-screen">
@@ -137,16 +142,16 @@ const LeftPanel = () => {
 };
 
 const MobileRightPanel = ({ children }: { children: React.ReactNode }) => {
-  const mobileRightPanelContext = useMobileRightPanelConetext();
+  const mobileRightPanelContext = useMobileRightPanelContext();
   return (
     <motion.div
       variants={mobileRightPanelVariants}
       initial="initial"
       transition={{
         ease: [0.33, 1, 0.68, 1],
-        duration: 0.5,
+        duration: 0.4,
         opacity: {
-          duration: 0.2,
+          delay: 0.4,
         },
       }}
       animate={mobileRightPanelContext?.mobileRightPanelOpen ? "animate" : ""}
