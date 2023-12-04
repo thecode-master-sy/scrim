@@ -10,7 +10,7 @@ const mobileRightPanelContext = createContext<mobileRightPanelContext | null>(
   null
 );
 
-export function useMobileRightPanelConetext() {
+export function useMobileRightPanelContext() {
   return useContext(mobileRightPanelContext);
 }
 
