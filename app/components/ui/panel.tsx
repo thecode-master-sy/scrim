@@ -6,9 +6,8 @@ import { DesktopNavBarContainer, ScrimLink } from "./navbar";
 import { SideBarButton } from "./sidebartoggle";
 import { Home, Gamepad, Bell } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useMobileRightPanelContext } from "@/app/contexts/PanelProviders";
-import Link from "next/link";
+import { useModalContext } from "@/app/contexts/ModalContextProvider";
 
 const mobileRightPanelVariants = {
   initial: {
@@ -68,6 +67,7 @@ const desktopPaths = [
 
 const LeftPanel = () => {
   const mobileRightPanelContext = useMobileRightPanelContext();
+  const modalContext = useModalContext();
   return (
     <div className="fixed left-0 top-0 h-screen w-full sm:w-[80%] md:w-[300px]  bg-scrim-sidebar md:bg-background border-r border-r-separator">
       <div className="flex flex-col h-screen">
@@ -79,7 +79,11 @@ const LeftPanel = () => {
             <ProfileComponent />
           </div>
 
-          <Button className="md:hidden">create</Button>
+          <Button
+            className="md:hidden"
+            onClick={modalContext?.toggleMobileModal}>
+            create
+          </Button>
         </header>
 
         <div>
@@ -162,14 +166,14 @@ const MobileRightPanel = ({ children }: { children: React.ReactNode }) => {
 };
 
 const DesktopRightPanel = ({ children }: { children: React.ReactNode }) => {
-  const [desktopIsOpen, setDesktopIsOpen] = useState(false);
+  const modalContext = useModalContext();
   return (
     <motion.div className="relative hidden md:block translate-x-0 w-auto ml-[300px] bg-background">
       <div className="fixed flex items-center justify-between top-0 left-0 right-0 w-full border-b border-border px-4 py-2 bg-background z-10">
         <SideBarButton />
         <div className="flex items-center gap-4">
           <Bell size={20} strokeWidth={2} />
-          <Button>create</Button>
+          <Button onClick={modalContext?.toggleDesktopModal}>create</Button>
         </div>
       </div>
       {children}

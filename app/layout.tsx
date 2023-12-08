@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import dynamic from "next/dynamic";
 import { MobileRightPanelContextProvider } from "./contexts/PanelProviders";
+import ModalContextProvider from "./contexts/ModalContextProvider";
 
 const ThemeContextProvider = dynamic(
   () => import("./contexts/ThemeContextProvider"),
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body className={lato.className}>
         <ThemeContextProvider>
           <MobileRightPanelContextProvider>
-            {children}
+            <ModalContextProvider>{children}</ModalContextProvider>
           </MobileRightPanelContextProvider>
         </ThemeContextProvider>
       </body>

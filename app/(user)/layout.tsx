@@ -7,24 +7,21 @@ import {
   MobileNavBar,
   MobileNavListElement,
 } from "../components/ui/navbar";
-import { SideBarButton } from "../components/ui/sidebartoggle";
-import { ProfileComponent } from "../components/user/profile";
 import {
-  SlidersHorizontal,
   Home,
   Gamepad,
   Search,
-  Bell,
-  PanelLeft,
 } from "lucide-react";
 import { ProfileImage } from "../components/user/profileimage";
-import { motion } from "framer-motion";
 import {
   LeftPanel,
   MobileRightPanel,
   DesktopRightPanel,
 } from "../components/ui/panel";
-import { CreateScrimModal } from "../components/user/CreateScrimModal";
+import {
+  CreateScrimModalDesktop,
+  CreateScrimModalMobile,
+} from "../components/user/CreateScrimModal";
 
 export default function DashboardLayout({
   children,
@@ -33,7 +30,7 @@ export default function DashboardLayout({
 }) {
   const [mobileIsOpen, setMobileIsOpen] = React.useState(false);
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <LeftPanel />
 
       <div className="w-full bg-background overflow-hidden">
@@ -41,7 +38,8 @@ export default function DashboardLayout({
         <DesktopRightPanel>{children}</DesktopRightPanel>
       </div>
 
-      {/* <CreateScrimModal /> */}
+      <CreateScrimModalMobile />
+      <CreateScrimModalDesktop />
 
       <MobileNavBarContainer>
         <MobileNavBar>

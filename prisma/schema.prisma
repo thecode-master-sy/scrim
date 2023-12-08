@@ -12,7 +12,7 @@ datasource db {
 
 model User {
   id              String             @id
-  username        String
+  username        String?
   email           String             @unique
   userPreferences UserPreferences?
   createdScrims   Scrim[]
@@ -36,7 +36,7 @@ model Scrim {
   createdAt         DateTime           @default(now())
   description       String
   status            String
-  platform          String
+  categories        String[]
   ScrimParticipants ScrimParticipant[]
   Messages          Message[]
 }
