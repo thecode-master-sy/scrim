@@ -103,10 +103,10 @@ const CreateScrimModalDesktop = () => {
 const ModalContent = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const tabs = [
-    <Introduction moveToNext={moveToNext} />,
-    <Title moveToNext={moveToNext} moveToPrevious={moveToPrevious} />,
-    <Description moveToNext={moveToNext} moveToPrevious={moveToPrevious} />,
-    <AddTags moveToNext={moveToNext} moveToPrevious={moveToPrevious} />,
+    <Introduction moveToNext={moveToNext} key={Math.random()}/>,
+    <Title moveToNext={moveToNext} moveToPrevious={moveToPrevious} key={Math.random()}/>,
+    <Description moveToNext={moveToNext} moveToPrevious={moveToPrevious} key={Math.random()}/>,
+    <AddTags moveToNext={moveToNext} moveToPrevious={moveToPrevious} key={Math.random()}/>,
   ];
   function moveToNext() {
     setSelectedTabIndex((prev) => prev + 1);
