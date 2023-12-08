@@ -26,7 +26,7 @@ const modalContentVariants = {
     scale: 1,
   },
   exit: {
-    scale: 0,
+    scale: 0.5,
   },
 };
 
@@ -36,6 +36,9 @@ const ScrollInFromLeftVariants = {
   },
   animate: {
     x: 0,
+  },
+  exit: {
+    x: "-100%",
   },
 };
 
@@ -126,7 +129,7 @@ const ModalContent = () => {
 
   return (
     <motion.div>
-      <AnimatePresence initial={false}>
+      <AnimatePresence mode="wait" initial={false}>
         {tabs[selectedTabIndex]}
       </AnimatePresence>
     </motion.div>
@@ -140,9 +143,7 @@ const ScrollInFromLeft = ({ children }: { children: React.ReactNode }) => {
       initial="inital"
       animate="animate"
       transition={{
-        x: {
-          ease: [0.16, 1, 0.3, 1],
-        },
+        x: { ease: [0.22, 1, 0.36, 1] },
       }}>
       {children}
     </motion.div>
