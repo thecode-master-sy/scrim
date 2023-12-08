@@ -76,7 +76,7 @@ const CreateScrimModalMobile = () => {
 const CreateScrimModalDesktop = () => {
   const modalContext = useModalContext();
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {modalContext?.desktopModalIsOpen && (
         <motion.div className="absolute top-0 left-0 w-full h-screen overflow-hidden flex pt-4 z-30">
           <ModalOverlay />
@@ -128,8 +128,8 @@ const ModalContent = () => {
   }
 
   return (
-    <motion.div className="flex gap-2">
-      <AnimatePresence initial={false}>
+    <motion.div>
+      <AnimatePresence mode="wait" initial={false}>
         {tabs[selectedTabIndex]}
       </AnimatePresence>
     </motion.div>
