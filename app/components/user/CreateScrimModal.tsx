@@ -76,7 +76,7 @@ const CreateScrimModalMobile = () => {
 const CreateScrimModalDesktop = () => {
   const modalContext = useModalContext();
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {modalContext?.desktopModalIsOpen && (
         <motion.div className="absolute top-0 left-0 w-full h-screen overflow-hidden flex pt-4 z-30">
           <ModalOverlay />
@@ -145,7 +145,7 @@ const ScrollInFromLeft = ({ children }: { children: React.ReactNode }) => {
       exit="exit"
       transition={{
         x: {
-          ease: [0.22, 1, 0.36, 1],
+          ease: [0.33, 1, 0.68, 1],
         },
       }}>
       {children}
