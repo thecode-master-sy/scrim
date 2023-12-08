@@ -103,10 +103,22 @@ const CreateScrimModalDesktop = () => {
 const ModalContent = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const tabs = [
-    <Introduction moveToNext={moveToNext} key={Math.random()}/>,
-    <Title moveToNext={moveToNext} moveToPrevious={moveToPrevious} key={Math.random()}/>,
-    <Description moveToNext={moveToNext} moveToPrevious={moveToPrevious} key={Math.random()}/>,
-    <AddTags moveToNext={moveToNext} moveToPrevious={moveToPrevious} key={Math.random()}/>,
+    <Introduction moveToNext={moveToNext} key={Math.random()} />,
+    <Title
+      moveToNext={moveToNext}
+      moveToPrevious={moveToPrevious}
+      key={Math.random()}
+    />,
+    <Description
+      moveToNext={moveToNext}
+      moveToPrevious={moveToPrevious}
+      key={Math.random()}
+    />,
+    <AddTags
+      moveToNext={moveToNext}
+      moveToPrevious={moveToPrevious}
+      key={Math.random()}
+    />,
   ];
   function moveToNext() {
     setSelectedTabIndex((prev) => prev + 1);
@@ -117,7 +129,7 @@ const ModalContent = () => {
 
   return (
     <motion.div>
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence initial={false}>
         {tabs[selectedTabIndex]}
       </AnimatePresence>
     </motion.div>
@@ -175,7 +187,7 @@ const Title = ({
           a descriptive title would make it easier for other to find your room
         </p>
       </header>
-      <form className="grid gap-4 mt-4">
+      <form className="grid gap-4 mt-4" onSubmit={(e) => e.preventDefault()}>
         <Input
           placeholder="search available scrims"
           name="title"
@@ -214,7 +226,7 @@ const Description = ({
           rules etc
         </p>
       </header>
-      <form className="grid gap-4 mt-4">
+      <form className="grid gap-4 mt-4" onSubmit={(e) => e.preventDefault()}>
         <Input
           placeholder="search available scrims"
           name="title"
