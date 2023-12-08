@@ -128,7 +128,7 @@ const ModalContent = () => {
   }
 
   return (
-    <motion.div>
+    <motion.div className="flex gap-2">
       <AnimatePresence initial={false}>
         {tabs[selectedTabIndex]}
       </AnimatePresence>
