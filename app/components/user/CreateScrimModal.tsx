@@ -141,8 +141,7 @@ const ScrollInFromLeft = ({ children }: { children: React.ReactNode }) => {
     <motion.div
       variants={ScrollInFromLeftVariants}
       initial="inital"
-      animate="animate"
-      exit="exit">
+      animate="animate">
       {children}
     </motion.div>
   );
