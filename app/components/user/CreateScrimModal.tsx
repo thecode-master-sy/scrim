@@ -37,9 +37,6 @@ const ScrollInFromLeftVariants = {
   animate: {
     x: 0,
   },
-  exit: {
-    x: "-100%",
-  },
 };
 
 const CreateScrimModalMobile = () => {
@@ -129,7 +126,7 @@ const ModalContent = () => {
 
   return (
     <motion.div>
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence initial={false}>
         {tabs[selectedTabIndex]}
       </AnimatePresence>
     </motion.div>
@@ -141,7 +138,12 @@ const ScrollInFromLeft = ({ children }: { children: React.ReactNode }) => {
     <motion.div
       variants={ScrollInFromLeftVariants}
       initial="inital"
-      animate="animate">
+      animate="animate"
+      transition={{
+        x: {
+          ease: [0.16, 1, 0.3, 1],
+        },
+      }}>
       {children}
     </motion.div>
   );
