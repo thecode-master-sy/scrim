@@ -1,6 +1,5 @@
 "use client";
-import * as React from "react";
-import { Button } from "../components/ui/button";
+import { useState } from "react";
 import {
   ScrimLink,
   MobileNavBarContainer,
@@ -28,7 +27,7 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [mobileIsOpen, setMobileIsOpen] = React.useState(false);
+  const [mobileIsOpen, setMobileIsOpen] = useState(false);
   return (
     <div className="relative overflow-hidden">
       <LeftPanel />
