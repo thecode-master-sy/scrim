@@ -7,6 +7,7 @@ export async function POST(request: NextRequest) {
     try {
         const {email, token} = await request.json();
         console.log(email, token);
+        cookies().getAll();
         const supabase = createRouteHandlerClient({cookies});
 
         const {

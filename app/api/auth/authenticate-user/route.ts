@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 export async function POST(request: NextRequest) {
     try {
         const {email, shouldCreateUser} = await request.json();
-       
+        cookies().getAll()// trying to resolve a build time error
         const supabase = createRouteHandlerClient({cookies});
 
         const { data, error } = await supabase.auth.signInWithOtp({

@@ -6,6 +6,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
+  /* trying to resolve a build time error*/
+  cookies().getAll()
   const supabase = createServerComponentClient({cookies});
 
   const {data: {session}} = await supabase.auth.getSession();

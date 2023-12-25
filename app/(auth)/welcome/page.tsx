@@ -6,6 +6,8 @@ import { redirect } from "next/navigation"
 import { getProfile } from "@/app/lib/api-client/user";
 
 export default async function Page() {
+  /* trying to resolve a build time error*/
+  cookies().getAll()
   const supabase = createServerComponentClient({cookies});
 
   const {data: {session}} = await supabase.auth.getSession();
