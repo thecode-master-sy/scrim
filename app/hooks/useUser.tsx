@@ -2,7 +2,7 @@
 import useLocalStorage from "./useLocalStorage";
 
 type userReturnValue = {
-  user: User;
+  user: UserDetails;
   setUser: Function;
 };
 

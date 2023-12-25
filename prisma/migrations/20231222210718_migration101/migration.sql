@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
-    "username" TEXT NOT NULL,
+    "username" TEXT,
     "email" TEXT NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -11,6 +11,8 @@ CREATE TABLE "User" (
 CREATE TABLE "UserPreferences" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
+    "emailUpdates" BOOLEAN DEFAULT false,
+    "theme" TEXT NOT NULL,
 
     CONSTRAINT "UserPreferences_pkey" PRIMARY KEY ("id")
 );
@@ -23,7 +25,7 @@ CREATE TABLE "Scrim" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "description" TEXT NOT NULL,
     "status" TEXT NOT NULL,
-    "platform" TEXT NOT NULL,
+    "categories" TEXT[],
 
     CONSTRAINT "Scrim_pkey" PRIMARY KEY ("id")
 );
@@ -47,6 +49,9 @@ CREATE TABLE "Message" (
 
     CONSTRAINT "Message_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "UserPreferences_userId_key" ON "UserPreferences"("userId");

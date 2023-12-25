@@ -1,5 +1,6 @@
-type User = {
+type UserDetails = {
+  id?: string;
   email: string;
-  id: string;
   username?: string;
+  profileImage?: string;
 };

@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Profile {
   id              String             @id
   username        String?
   email           String             @unique
@@ -22,7 +22,7 @@ model User {
 
 model UserPreferences {
   id           String   @id @default(uuid())
-  user         User     @relation(fields: [userId], references: [id])
+  user         Profile     @relation(fields: [userId], references: [id])
   userId       String   @unique
   emailUpdates Boolean? @default(false)
   theme        String
@@ -31,7 +31,7 @@ model UserPreferences {
 model Scrim {
   id                String             @id @default(uuid())
   scrimName         String
-  creator           User               @relation(fields: [creatorId], references: [id])
+  creator           Profile               @relation(fields: [creatorId], references: [id])
   creatorId         String
   createdAt         DateTime           @default(now())
   description       String
@@ -43,7 +43,7 @@ model Scrim {
 
 model ScrimParticipant {
   id            String @id @default(uuid())
-  participant   User   @relation(fields: [participantId], references: [id])
+  participant   Profile   @relation(fields: [participantId], references: [id])
   scrim         Scrim  @relation(fields: [scrimId], references: [id])
   participantId String
   scrimId       String
@@ -51,7 +51,7 @@ model ScrimParticipant {
 
 model Message {
   id        String   @id @default(uuid())
-  author    User     @relation(fields: [authorId], references: [id])
+  author    Profile     @relation(fields: [authorId], references: [id])
   scrim     Scrim    @relation(fields: [scrimId], references: [id])
   content   String
   timeStamp DateTime

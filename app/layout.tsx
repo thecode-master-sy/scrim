@@ -1,5 +1,4 @@
 import "./globals.css";
-import "./lib/hanko/hanko.css";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import dynamic from "next/dynamic";

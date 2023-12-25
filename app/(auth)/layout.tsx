@@ -9,7 +9,7 @@ export default function AuthLayout({
 }) {
   const themeContext = useThemeContext();
   const layoutStyles = {
-    default: "min-h-screen  bg-no-repeat p-4",
+    default: "min-h-screen  bg-no-repeat",
     darkmode: "bg-scrim-bg-gradient md:bg-scrim-bg-gradient-desktop",
     lightmode: "bg-background",
   };

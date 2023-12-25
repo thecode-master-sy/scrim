@@ -44,6 +44,10 @@ const config: Config = {
             },
           },
           "button-stroke": "var(--scrim-button-stroke)",
+          pellet: {
+            color: "var(--scrim-pellet-color)",
+            border: "var(--scrim-pellet-border)"
+          }
         },
         primary: {
           dark: "var(--scrim-primary)",
