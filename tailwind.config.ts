@@ -46,7 +46,8 @@ const config: Config = {
           "button-stroke": "var(--scrim-button-stroke)",
           pellet: {
             color: "var(--scrim-pellet-color)",
-            border: "var(--scrim-pellet-border)"
+            border: "var(--scrim-pellet-border)",
+            selected: "var(--scrim-pellet-selected-border)"
           }
         },
         primary: {

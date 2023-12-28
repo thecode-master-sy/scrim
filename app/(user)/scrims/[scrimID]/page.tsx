@@ -3,7 +3,7 @@ import { Users2, MoreVertical, ArrowRight } from "lucide-react";
 import { SideBarButton } from "@/app/components/ui/sidebartoggle";
 import { Input } from "@/app/components/ui/input";
 import { Button } from "@/app/components/ui/button";
-import { ProfileImage } from "@/app/components/user/profileimage";
+import { ProfileImage } from "@/app/components/user/Profile/profileimage";
 import { Pellet, PelletText } from "@/app/components/ui/pellet";
 import { TimeLine, TimeLineContent } from "@/app/components/ui/timeline";
 import {
@@ -20,7 +20,6 @@ interface ScrimProps {
 }
 
 export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
-  const ID = scrimID.split("-")[0];
   const mobileRightPanelContext = useMobileRightPanelContext();
 
   return (
@@ -43,7 +42,7 @@ export default function Page({ params: { scrimID } }: { params: ScrimProps }) {
       <div className="pt-32 pb-[10rem] md:pb-[5rem] px-4 max-h-screen overflow-y-scroll">
         <div>
           <div className="flex flex-col gap-2">
-            <Pellet className="mx-auto">
+            <Pellet selected={false} className="mx-auto">
               <PelletText>Heisenberg created a scrim room</PelletText>
             </Pellet>
 

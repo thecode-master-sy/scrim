@@ -21,8 +21,8 @@ model Profile {
 }
 
 model UserPreferences {
-  id           String   @id @default(uuid())
-  user         Profile     @relation(fields: [userId], references: [id])
+  id           String   @id @default(uuid()) 
+  user         Profile  @relation(fields: [userId], references: [id])
   userId       String   @unique
   emailUpdates Boolean? @default(false)
   theme        String
@@ -31,7 +31,7 @@ model UserPreferences {
 model Scrim {
   id                String             @id @default(uuid())
   scrimName         String
-  creator           Profile               @relation(fields: [creatorId], references: [id])
+  creator           Profile            @relation(fields: [creatorId], references: [id])
   creatorId         String
   createdAt         DateTime           @default(now())
   description       String
@@ -42,19 +42,20 @@ model Scrim {
 }
 
 model ScrimParticipant {
-  id            String @id @default(uuid())
-  participant   Profile   @relation(fields: [participantId], references: [id])
-  scrim         Scrim  @relation(fields: [scrimId], references: [id])
+  id            String   @id @default(uuid())
+  participant   Profile  @relation(fields: [participantId], references: [id])
+  scrim         Scrim    @relation(fields: [scrimId], references: [id])
   participantId String
   scrimId       String
+  joinedAt      DateTime @default(now())
 }
 
 model Message {
   id        String   @id @default(uuid())
-  author    Profile     @relation(fields: [authorId], references: [id])
+  author    Profile  @relation(fields: [authorId], references: [id])
   scrim     Scrim    @relation(fields: [scrimId], references: [id])
   content   String
-  timeStamp DateTime
+  timeStamp DateTime @default(now())
   authorId  String
   scrimId   String
 }

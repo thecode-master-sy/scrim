@@ -4,6 +4,7 @@ import { Lato } from "next/font/google";
 import dynamic from "next/dynamic";
 import { MobileRightPanelContextProvider } from "./contexts/PanelProviders";
 import ModalContextProvider from "./contexts/ModalContextProvider";
+import { Toaster } from "./components/ui/toaster";
 
 const ThemeContextProvider = dynamic(
   () => import("./contexts/ThemeContextProvider"),
@@ -30,6 +31,7 @@ export default function RootLayout({
         <ThemeContextProvider>
           <MobileRightPanelContextProvider>
             <ModalContextProvider>{children}</ModalContextProvider>
+            <Toaster />
           </MobileRightPanelContextProvider>
         </ThemeContextProvider>
       </body>

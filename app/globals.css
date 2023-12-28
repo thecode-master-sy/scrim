@@ -54,6 +54,7 @@
     --scrim-text-foreground: var(--scrim-background-dark);
     --scrim-pellet-color: var(--scrim-background-light-600);
     --scrim-pellet-border: var(--scrim-background-light-500);
+    --scrim-pellet-selected-border: var(--scrim-background-light-400);
     --scrim-input-color: var(--scrim-input-color-light);
     --scrim-separator-color: var(--scrim-background-light-500);
     --scrim-nav-indicator: var(--scrim-background-light-600);
@@ -74,7 +75,8 @@
     --scrim-background: var(--scrim-background-dark);
     --scrim-text-foreground: var(--scrim-background-white);
     --scrim-pellet-color: var(--scrim-background-light-100);
-    --scrim-pellet-border: var(--scrim-background-light-200);
+    --scrim-pellet-border: var(--scrim-background-light-300);
+    --scrim-pellet-selected-border: var(--scrim-background-light-400);
     --scrim-input-color: var(--scrim-input-color-dark);
     --scrim-separator-color: var(--scrim-background-light-100);
     --scrim-nav-indicator: var(--scrim-input-color);
