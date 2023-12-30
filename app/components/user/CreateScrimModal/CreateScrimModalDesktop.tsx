@@ -20,7 +20,7 @@ const modalContentVariants = {
 
 const ModalOverlay = () => {
     return (
-      <div className="absolute top-0 left-0 w-full h-screen bg-white/20 backdrop-blur-md -z-10" />
+      <div className="absolute top-0 left-0 w-full h-screen bg-scrim-overlay opacity-50 backdrop-blur-md -z-10" />
     );
 };
 

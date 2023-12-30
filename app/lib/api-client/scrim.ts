@@ -40,3 +40,25 @@ export async function getScrimRooms(userId: string) {
       })
       return data
 }
+
+export async function getScrimRoom(scrimId:string) {
+  const data = await prisma.scrim.findUnique({
+    where: {
+      id: scrimId,
+    },
+    include: {
+      Messages: {
+        include: {
+          author: true
+        }
+      },
+      ScrimParticipants: {
+        include: {
+          participant: true
+        }
+      },
+      creator: true,
+    }
+  })
+  return data
+}

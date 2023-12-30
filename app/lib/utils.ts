@@ -36,3 +36,20 @@ export function verify(value: string, pattern: RegExp) {
 
   return true;
 }
+
+export function formatDate(date: Date) {
+  const options:Intl.DateTimeFormatOptions  = {
+    timeZone: 'America/Los_Angeles',
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+  
+  const formattedDate = date.toLocaleString('en-US', options);
+  
+  return formattedDate;
+}

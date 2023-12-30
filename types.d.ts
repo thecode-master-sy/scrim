@@ -1,3 +1,9 @@
+type User = {
+  id: string;
+  email: string;
+  username: string | null;
+}
+
 type UserDetails = {
   id?: string;
   email: string;
@@ -12,6 +18,23 @@ type ScrimRoomDetails = {
   categories: string[]
 }
 
+type Message = {
+  id: string;
+  content: string;
+  timeStamp: Date;
+  authorId: string;
+  scrimId: string;
+  author?: User;
+}
+
+type ScrimParticipant = {
+  id: string;
+  participantId: string;
+  scrimId: string;
+  joinedAt: Date;
+  participant?: User;
+}
+
 type ScrimRoom = {
   id: string;
   scrimName: string;
@@ -20,4 +43,7 @@ type ScrimRoom = {
   description: string;
   status: string;
   categories: string[];
+  Messages?: Message[];
+  ScrimParticipants?: ScrimParticipant[];
+  creator?: User;
 }

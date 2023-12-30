@@ -48,6 +48,11 @@ const config: Config = {
             color: "var(--scrim-pellet-color)",
             border: "var(--scrim-pellet-border)",
             selected: "var(--scrim-pellet-selected-border)"
+          },
+          overlay: "var(--scrim-overlay-bg)",
+          card: {
+            bg: "var(--scrim-card-bg)",
+            border: "var(--scrim-card-border)"
           }
         },
         primary: {

@@ -44,7 +44,7 @@
 
     --fs-small: clamp(0.6rem, 4vw, 0.8rem);
     --fs-base: clamp(0.85rem, 4vw, 0.92rem);
-    --fs-mid: clamp(1.35rem, 4vw, 1.5rem);
+    --fs-mid: clamp(1.1rem, 4vw, 1.5rem);
     --fs-logo: clamp(2.3rem, 4vw, 2.2rem);
     --fs-large: clamp(2.35rem, 6vw, 3.5rem);
   }
@@ -70,6 +70,9 @@
       rgb(230, 173, 73) 149.4%
     );
     /* --scrim-overlay-color:  */
+    --scrim-overlay-bg: var(--scrim-background);
+    --scrim-card-bg: var(--scrim-background-light-500);
+    --scrim-card-border: var(--scrim-background-light-400);
   }
   html.dark {
     --scrim-background: var(--scrim-background-dark);
@@ -91,6 +94,9 @@
       rgba(223, 130, 29, 0.7) 53.01%,
       rgba(230, 173, 73, 0.7) 149.4%
     );
+    --scrim-overlay-bg: var(--scrim-background);
+    --scrim-card-bg: var(--scrim-background-light-100);
+    --scrim-card-border: var(--scrim-background-light-300);
   }
 
   body {
